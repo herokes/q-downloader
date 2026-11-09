@@ -9,7 +9,6 @@
   var heroLabel = document.getElementById('hero-dl-label');
   var heroMeta = document.getElementById('hero-meta');
   var versionLine = document.getElementById('version-line');
-  var footerVersion = document.getElementById('footer-version');
 
   function setHero(href, label) {
     heroBtn.href = href;
@@ -52,7 +51,6 @@
       var v = (rel.tag_name || '').replace(/^v/, '');
       if (v) {
         versionLine.textContent = 'Version ' + v + (rel.published_at ? ', released ' + new Date(rel.published_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) : '') + '.';
-        footerVersion.textContent = v;
         heroMeta.textContent = 'Version ' + v + '. Installers are not code-signed yet.';
       }
     })
