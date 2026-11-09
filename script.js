@@ -8,7 +8,6 @@
   var heroBtn = document.getElementById('hero-dl');
   var heroLabel = document.getElementById('hero-dl-label');
   var heroMeta = document.getElementById('hero-meta');
-  var versionLine = document.getElementById('version-line');
 
   function setHero(href, label) {
     heroBtn.href = href;
@@ -47,11 +46,6 @@
         var isArm = /arm/i.test(navigator.platform || '') || !x64;
         var pick = isArm ? arm || x64 : x64 || arm;
         if (pick) setHero(pick, 'Download for macOS');
-      }
-      var v = (rel.tag_name || '').replace(/^v/, '');
-      if (v) {
-        versionLine.textContent = 'Version ' + v + (rel.published_at ? ', released ' + new Date(rel.published_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }) : '') + '.';
-        heroMeta.textContent = 'Version ' + v + '. Installers are not code-signed yet.';
       }
     })
     .catch(function () { /* keep the release-page links */ });
